@@ -5,8 +5,8 @@ declare class ProductController {
     constructor();
     findAll: (req: Request, res: Response) => Promise<void>;
     addProduct: (req: Request, res: Response) => Promise<void>;
-    edit: (req: Request, res: Response) => void;
-    remove: (req: Request, res: Response) => void;
+    edit: (req: Request, res: Response) => Promise<void>;
+    remove: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: ProductController;
 export default _default;

@@ -25,16 +25,17 @@ class ProductController {
                 });
             }
         };
-        this.edit = (req, res) => {
+        this.edit = async (req, res) => {
             let id = req.params.id;
             let productEdit = req.body;
-            console.log(id, productEdit);
+            await this.productService.edit(id, productEdit);
             res.status(200).json({
                 message: 'Edit success'
             });
         };
-        this.remove = (req, res) => {
+        this.remove = async (req, res) => {
             let id = req.params.id;
+            await this.productService.remove(id);
             res.status(200).json({
                 message: 'Delete success'
             });

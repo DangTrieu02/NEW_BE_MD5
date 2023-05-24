@@ -31,20 +31,28 @@ class ProductController {
         }
     }
 
-    edit = (req: Request, res: Response) => {
+    edit = async (req: Request, res: Response) => {
         let id = req.params.id;
         let productEdit = req.body;
-        console.log(id, productEdit)
+        await this.productService.edit(id, productEdit)
         res.status(200).json({
             message: 'Edit success'
         })
     }
 
-    remove = (req: Request, res: Response) => {
+    remove = async (req: Request, res: Response) => {
         let id = req.params.id;
+        await this.productService.remove(id)
         res.status(200).json({
             message: 'Delete success'
         })
+    }
+    findOne= async (req: Request, res: Response) => {
+        let id = req.params.id;
+        let product= await this.productService.findOne(id)
+        res.status(200).json(
+            product
+        )
     }
 }
 

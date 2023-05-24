@@ -27,9 +27,11 @@ class UserService {
                         username: userFind.username,
                         role: 'admin'
                     };
-                    return jsonwebtoken_1.default.sign(payload, auth_1.SECRET, {
+                    let token = jsonwebtoken_1.default.sign(payload, auth_1.SECRET, {
                         expiresIn: 36000 * 10 * 100
                     });
+                    payload['token'] = token;
+                    return payload;
                 }
                 else {
                     return 'Password is wrong';

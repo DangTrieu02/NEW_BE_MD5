@@ -3,6 +3,8 @@ declare class ProductService {
     constructor();
     getAll: () => Promise<any>;
     add: (product: any) => Promise<void>;
+    remove: (id: any) => Promise<void>;
+    edit: (id: any, product: any) => Promise<void>;
 }
 declare const _default: ProductService;
 export default _default;
