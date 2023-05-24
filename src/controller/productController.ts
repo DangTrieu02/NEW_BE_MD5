@@ -49,10 +49,9 @@ class ProductController {
     }
     findOne= async (req: Request, res: Response) => {
         let id = req.params.id;
-        let product= await this.productService.findOne(id)
-        res.status(200).json(
-            product
-        )
+        console.log(id);
+        let product= await this.productService.getOne(id)
+        res.status(200).json(product)
     }
 }
 

@@ -21,6 +21,9 @@ class ProductService {
         this.edit = async (id, product) => {
             await this.productRepository.update({ id: id }, product);
         };
+        this.getOne = async (id) => {
+            return await this.productRepository.findOneBy({ id });
+        };
         this.productRepository = data_source_1.AppDataSource.getRepository(product_1.Product);
     }
 }

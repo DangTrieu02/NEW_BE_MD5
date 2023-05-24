@@ -29,8 +29,8 @@ class ProductService {
     edit = async (id,product) => {
         await this.productRepository.update({id:id},product)
     }
-    findOne = async (id) => {
-        return this.productRepository.find({id})
+    getOne = async (id) => {
+        return await this.productRepository.findOneBy({id})
     }
 }
 

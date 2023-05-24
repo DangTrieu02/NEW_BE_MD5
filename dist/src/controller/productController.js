@@ -40,6 +40,12 @@ class ProductController {
                 message: 'Delete success'
             });
         };
+        this.findOne = async (req, res) => {
+            let id = req.params.id;
+            console.log(id);
+            let product = await this.productService.getOne(id);
+            res.status(200).json(product);
+        };
         this.productService = productService_1.default;
         this.categoryService = CategoryService_1.default;
     }
